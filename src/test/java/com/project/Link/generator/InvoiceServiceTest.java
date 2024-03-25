@@ -47,6 +47,12 @@ public class InvoiceServiceTest {
     }
 
     @Test
+    public void testGenerateTransactionLinkWitWrongInvoiceId() {
+        String viewInvoiceLink = invoiceService.generateTransactionLink(TransactionType.AIRTIME, "123456");
+        assertNull(viewInvoiceLink);
+    }
+
+    @Test
     public void testGetInvoice() {
         Invoice invoice = generateInvoice();
         Invoice existingInvoice = invoiceService.getInvoice(invoice.getId());
